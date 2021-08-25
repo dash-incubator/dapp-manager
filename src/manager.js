@@ -125,9 +125,9 @@ const init = async function() {
     }
 
     dapps = await manifest.read({
-        query: {
-            where: ['identityId', '=', identity]
-        }
+        where: [
+            ['$ownerId', '==', identity]
+        ]
     });
 
     if (!dapps.length) {
